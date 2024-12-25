@@ -1,0 +1,73 @@
+package com.euv.proffme.service.impl;
+
+import com.euv.proffme.model.entity.user.StudentEntity;
+import com.euv.proffme.model.exception.EntityAlreadySavedException;
+import com.euv.proffme.model.exception.EntityNotFoundException;
+import com.euv.proffme.repository.StudentRepository;
+import com.euv.proffme.service.StudentService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class StudentServiceImpl implements StudentService {
+    private final StudentRepository studentRepository;
+
+    @Autowired
+    public StudentServiceImpl(StudentRepository studentRepository) {this.studentRepository = studentRepository;}
+
+    @Override
+    public StudentEntity findById(Long id) throws EntityNotFoundException {
+        Optional<StudentEntity> optional = studentRepository.findById(id);
+        if (optional.isPresent()) {
+            return optional.get();
+        }
+        throw new EntityNotFoundException("Lesson is not found: " + id);
+    }
+
+    @Override
+    public List<StudentEntity> findAll() {
+        return studentRepository.findAll();
+    }
+
+    @Override
+    public StudentEntity save(StudentEntity message) throws EntityAlreadySavedException {
+        try {
+            StudentEntity savedMessage = this.findById(message.getId());
+            throw new EntityAlreadySavedException("Lesson is already saved before: " + message.getId());
+        } catch (EntityNotFoundException e) {
+            return studentRepository.save(message);
+        }
+    }
+
+    @Override
+    public StudentEntity update(StudentEntity message) throws EntityNotFoundException {
+        try {
+            StudentEntity savedMessage = this.findById(message.getId());
+            savedMessage.setId(message.getId());
+            savedMessage.setName(message.getName());
+            savedMessage.setSurname(message.getSurname());
+            savedMessage.setEmail(message.getEmail());
+            savedMessage.setPassword(message.getPassword());
+            savedMessage.setPhoneNumber(message.getPhoneNumber());
+            savedMessage.setGivenLessons(message.getGivenLessons());
+            savedMessage.setProfilePicture(message.getProfilePicture());
+            savedMessage.setEnabled(savedMessage.isEnabled());
+            return this.studentRepository.save(savedMessage);
+        } catch (EntityNotFoundException e) {
+            throw e;
+        }
+    }
+
+    @Override
+    public void delete(Long id) throws EntityNotFoundException {
+        try {
+            StudentEntity savedMessage = this.findById(id);
+            this.studentRepository.delete(savedMessage);
+        } catch (EntityNotFoundException e) {
+            throw e;
+        }
+    }
+}
