@@ -1,5 +1,6 @@
 package com.euv.proffme.service;
 
+
 import com.euv.proffme.model.entity.user.TeacherEntity;
 import com.euv.proffme.model.exception.EntityAlreadySavedException;
 import com.euv.proffme.model.exception.EntityNotFoundException;

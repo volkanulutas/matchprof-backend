@@ -8,6 +8,7 @@
 
 package com.euv.proffme.repository;
 
+
 import com.euv.proffme.model.entity.user.TeacherEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

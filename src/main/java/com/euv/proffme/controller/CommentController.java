@@ -54,7 +54,7 @@ public class CommentController {
         }
     }
 
-    @GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> findById(@PathParam("id") Long id) {
         try {
             CommentEntity commentEntity = commentService.findById(id);
