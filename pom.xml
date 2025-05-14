@@ -9,10 +9,10 @@
         <relativePath/>
     </parent>
     <groupId>com.euv</groupId>
-    <artifactId>proffme</artifactId>
+    <artifactId>matchprof-backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>proffme</name>
-    <description>Proffme</description>
+    <name>matchprof-backend</name>
+    <description>Matchprof</description>
     <url/>
     <licenses>
         <license/>
