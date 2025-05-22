@@ -24,7 +24,7 @@ public class StudentServiceImpl implements StudentService {
         if (optional.isPresent()) {
             return optional.get();
         }
-        throw new EntityNotFoundException("Lesson is not found: " + id);
+        throw new EntityNotFoundException("Student is not found: " + id);
     }
 
     @Override
@@ -33,13 +33,11 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public StudentEntity save(StudentEntity message) throws EntityAlreadySavedException {
-        try {
-            StudentEntity savedMessage = this.findById(message.getId());
-            throw new EntityAlreadySavedException("Lesson is already saved before: " + message.getId());
-        } catch (EntityNotFoundException e) {
-            return studentRepository.save(message);
+    public StudentEntity save(StudentEntity student) throws EntityAlreadySavedException {
+        if (student.getId() != null && studentRepository.existsById(student.getId())) {
+            throw new EntityAlreadySavedException("Student is already saved before: " + student.getId());
         }
+        return studentRepository.save(student);
     }
 
     @Override
@@ -52,7 +50,7 @@ public class StudentServiceImpl implements StudentService {
             savedMessage.setEmail(message.getEmail());
             savedMessage.setPassword(message.getPassword());
             savedMessage.setPhoneNumber(message.getPhoneNumber());
-            savedMessage.setGivenLessons(message.getGivenLessons());
+            savedMessage.setTakenLessons(message.getTakenLessons());
             savedMessage.setProfilePicture(message.getProfilePicture());
             savedMessage.setEnabled(savedMessage.isEnabled());
             return this.studentRepository.save(savedMessage);
@@ -69,5 +67,10 @@ public class StudentServiceImpl implements StudentService {
         } catch (EntityNotFoundException e) {
             throw e;
         }
+    }
+
+    @Override
+    public boolean hasAnyRecord() {
+        return studentRepository.existsByIdIsNotNull();
     }
 }

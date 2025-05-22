@@ -1,0 +1,19 @@
+students:
+  - id: 1
+    email: aylaacar@gmail.com
+    phoneNumber: "05321231235"
+    password: "12345"
+    profilePicture: null
+    name: Ayla
+    surname: Açar
+    enabled: true
+    takenLessonIds: [1]
+  - id: 2
+    email: nurozer@gmail.com
+    phoneNumber: "05321231235"
+    password: "12345"
+    profilePicture: null
+    name: Nur
+    surname: Özer
+    enabled: true
+    takenLessonIds: [1]

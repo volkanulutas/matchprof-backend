@@ -1,0 +1,281 @@
+categories:
+    - id: 1
+      parentId: null
+      name: "Matematik"
+      description: "Matematik Ders Kategorisi"
+      enabled: true
+    - id: 2
+      parentId: null
+      name: "Fen Bilimleri"
+      description: "Fen Bilimleri Ders Kategorisi"
+      enabled: true
+    - id: 3
+      parentId: null
+      name: "Yabancı Dil"
+      description: "Yabancı Dil Ders Kategorisi"
+      enabled: true
+    - id: 4
+      parentId: null
+      name: "Sanat ve Beşeri Bilimler"
+      description: "Sanat ve Beşeri Bilimler Ders Kategorisi"
+      enabled: true
+    - id: 5
+      parentId: null
+      name: "İşletme"
+      description: "İşletme Ders Kategorisi"
+      enabled: true
+    - id: 6
+      parentId: null
+      name: "Müzik"
+      description: "Müzik Ders Kategorisi"
+      enabled: true
+    - id: 7
+      parentId: null
+      name: "Spor"
+      description: "Spor Ders Kategorisi"
+      enabled: true
+    - id: 8
+      parentId: null
+      name: "Genel"
+      description: "Genel Ders Kategorisi"
+      enabled: true
+    - id: 9
+      parentId: null
+      name: "Bilgisayar Bilimleri"
+      description: "Bilgisayar Ders Kategorisi"
+      enabled: true
+    - id: 10
+      parentId: 1
+      name: "Cebir"
+      description: "Cebir Ders Kategorisi"
+      enabled: true
+    - id: 11
+      parentId: 1
+      name: "Kalkülüs"
+      description: "Kalkülüs Ders Kategorisi"
+      enabled: true
+    - id: 12
+      parentId: 1
+      name: "İstatistik"
+      description: "İstatistik Ders Kategorisi"
+      enabled: true
+    - id: 13
+      parentId: 1
+      name: "Geometri"
+      description: "Geometri Ders Kategorisi"
+      enabled: true
+    - id: 14
+      parentId: 2
+      name: "Fizik"
+      description: "Fizik Ders Kategorisi"
+      enabled: true
+    - id: 15
+      parentId: 2
+      name: "Kimya"
+      description: "Kimya Ders Kategorisi"
+      enabled: true
+    - id: 15
+      parentId: 3
+      name: "İngilizce"
+      description: "İngilizce Ders Kategorisi"
+      enabled: true
+    - id: 16
+      parentId: 3
+      name: "İspanyolca"
+      description: "İspanyolca Ders Kategorisi"
+      enabled: true
+    - id: 17
+      parentId: 3
+      name: "Fransızca"
+      description: "Fransızca Ders Kategorisi"
+      enabled: true
+    - id: 18
+      parentId: 3
+      name: "Almanca"
+      description: "Almanca Ders Kategorisi"
+      enabled: true
+    - id: 19
+      parentId: 3
+      name: "İtalyanca"
+      description: "İtalyanca Ders Kategorisi"
+      enabled: true
+    - id: 20
+      parentId: 3
+      name: "Korece"
+      description: "Korece Ders Kategorisi"
+      enabled: true
+    - id: 21
+      parentId: 4
+      name: "Tarih"
+      description: "Tarih Ders Kategorisi"
+      enabled: true
+    - id: 22
+      parentId: 4
+      name: "Felsefe"
+      description: "Felsefe Ders Kategorisi"
+      enabled: true
+    - id: 23
+      parentId: 4
+      name: "Edebiyat"
+      description: "Edebiyat Ders Kategorisi"
+      enabled: true
+    - id: 24
+      parentId: 4
+      name: "Sanat Tarihi"
+      description: "Sanat Tarihi Ders Kategorisi"
+      enabled: true
+    - id: 25
+      parentId: 4
+      name: "Psikoloji"
+      description: "Psikoloji Ders Kategorisi"
+      enabled: true
+    - id: 26
+      parentId: 4
+      name: "Resim"
+      description: "Resim Ders Kategorisi"
+      enabled: true
+    - id: 27
+      parentId: 4
+      name: "Yazarlık"
+      description: "Yazarlık Ders Kategorisi"
+      enabled: true
+    - id: 28
+      parentId: 5
+      name: "Ekonomi"
+      description: "Ekonomi Ders Kategorisi"
+      enabled: true
+    - id: 29
+      parentId: 5
+      name: "Pazarlama"
+      description: "Pazarlama Ders Kategorisi"
+      enabled: true
+    - id: 30
+      parentId: 5
+      name: "Finans"
+      description: "Finans Ders Kategorisi"
+      enabled: true
+    - id: 31
+      parentId: 5
+      name: "Muhasabe"
+      description: "Muhasabe Ders Kategorisi"
+      enabled: true
+    - id: 32
+      parentId: 6
+      name: "Piyano"
+      description: "Piyano Ders Kategorisi"
+      enabled: true
+    - id: 33
+      parentId: 6
+      name: "Gitar"
+      description: "Gitar Ders Kategorisi"
+      enabled: true
+    - id: 34
+      parentId: 6
+      name: "Yan Flüt"
+      description: "Yan Flüt Ders Kategorisi"
+      enabled: true
+    - id: 35
+      parentId: 6
+      name: "Bağlama"
+      description: "Bağlama Ders Kategorisi"
+      enabled: true
+    - id: 36
+      parentId: 6
+      name: "Dans"
+      description: "Dans Ders Kategorisi"
+      enabled: true
+    - id: 37
+      parentId: 6
+      name: "Bateri"
+      description: "Bateri Ders Kategorisi"
+      enabled: true
+    - id: 38
+      parentId: 6
+      name: "Keman"
+      description: "Keman Ders Kategorisi"
+      enabled: true
+    - id: 39
+      parentId: 6
+      name: "Şan"
+      description: "Şan Ders Kategorisi"
+      enabled: true
+    - id: 40
+      parentId: 7
+      name: "Tenis"
+      description: "Tenis Ders Kategorisi"
+      enabled: true
+    - id: 41
+      parentId: 7
+      name: "Yüzme"
+      description: "Yüzme Ders Kategorisi"
+      enabled: true
+    - id: 42
+      parentId: 7
+      name: "Fitness"
+      description: "Fitness Ders Kategorisi"
+      enabled: true
+    - id: 43
+      parentId: 7
+      name: "Personal Trainer"
+      description: "Personal Trainer Ders Kategorisi"
+      enabled: true
+    - id: 44
+      parentId: 7
+      name: "Pilates"
+      description: "Pilates Ders Kategorisi"
+      enabled: true
+    - id: 45
+      parentId: 7
+      name: "Yoga"
+      description: "Yoga Ders Kategorisi"
+      enabled: true
+    - id: 46
+      parentId: 7
+      name: "Boks"
+      description: "Boks Ders Kategorisi"
+      enabled: true
+    - id: 47
+      parentId: 8
+      name: "Satranç"
+      description: "Satranç Ders Kategorisi"
+      enabled: true
+    - id: 48
+      parentId: 8
+      name: "Kuran Okuma"
+      description: "Kuran Okuma Ders Kategorisi"
+      enabled: true
+    - id: 49
+      parentId: 8
+      name: "Diksiyon"
+      description: "Diksiyon Ders Kategorisi"
+      enabled: true
+    - id: 50
+      parentId: 9
+      name: "Java"
+      description: "Java Ders Kategorisi"
+      enabled: true
+    - id: 51
+      parentId: 9
+      name: "Frontend"
+      description: "Frontend Ders Kategorisi"
+      enabled: true
+    - id: 52
+      parentId: 9
+      name: "Backend"
+      description: "Backend Ders Kategorisi"
+      enabled: true
+    - id: 53
+      parentId: 9
+      name: "Spring"
+      description: "Spring Ders Kategorisi"
+      enabled: true
+    - id: 54
+      parentId: 9
+      name: "Veritabanları"
+      description: "Veritabanları Ders Kategorisi"
+      enabled: true
+    - id: 55
+      parentId: 9
+      name: "Yapay Zeka"
+      description: "Yapay Zeka Ders Kategorisi"
+      enabled: true

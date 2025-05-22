@@ -1,7 +1,6 @@
 package com.euv.matchprof.model.entity.user;
 
 import com.euv.matchprof.model.entity.lesson.LessonEntity;
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
@@ -25,7 +24,7 @@ import java.util.Set;
 @Entity(name = "StudentEntity")
 @Table(name = "StudentEntity")
 public class StudentEntity extends UserEntity {
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JoinTable(name = "student_given_lessons", joinColumns = @JoinColumn(name = "student_id"), inverseJoinColumns = @JoinColumn(name = "lesson_id"))
-    private Set<LessonEntity> givenLessons = new HashSet<>();
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "student_taken_lessons", joinColumns = @JoinColumn(name = "student_id"), inverseJoinColumns = @JoinColumn(name = "lesson_id"))
+    private Set<LessonEntity> takenLessons = new HashSet<>();
 }

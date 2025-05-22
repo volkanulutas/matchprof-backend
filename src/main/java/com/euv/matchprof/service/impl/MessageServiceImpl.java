@@ -24,7 +24,7 @@ public class MessageServiceImpl implements MessageService {
         if (optional.isPresent()) {
             return optional.get();
         }
-        throw new EntityNotFoundException("Lesson is not found: " + id);
+        throw new EntityNotFoundException("Message is not found: " + id);
     }
 
     @Override
@@ -34,12 +34,10 @@ public class MessageServiceImpl implements MessageService {
 
     @Override
     public MessageEntity save(MessageEntity message) throws EntityAlreadySavedException {
-        try {
-            MessageEntity savedMessage = this.findById(message.getId());
-            throw new EntityAlreadySavedException("Lesson is already saved before: " + message.getId());
-        } catch (EntityNotFoundException e) {
-            return messageRepository.save(message);
+        if (message.getId() != null && messageRepository.existsById(message.getId())) {
+            throw new EntityAlreadySavedException("Message is already saved before: " + message.getId());
         }
+        return messageRepository.save(message);
     }
 
     @Override
@@ -65,5 +63,10 @@ public class MessageServiceImpl implements MessageService {
         } catch (EntityNotFoundException e) {
             throw e;
         }
+    }
+
+    @Override
+    public boolean hasAnyRecord() {
+        return messageRepository.existsByIdIsNotNull();
     }
 }

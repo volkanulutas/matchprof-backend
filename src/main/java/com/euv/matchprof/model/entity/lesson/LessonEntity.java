@@ -1,6 +1,5 @@
 package com.euv.matchprof.model.entity.lesson;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -39,11 +38,11 @@ public class LessonEntity {
     @Column
     private boolean isEnabled;
 
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "charge_id", referencedColumnName = "id")
-    private LessonChargeEntity charge;
-
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id", referencedColumnName = "id", nullable = false)
     private LessonCategoryEntity category;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "charge_id", referencedColumnName = "id", nullable = false)
+    private LessonChargeEntity charge;
 }

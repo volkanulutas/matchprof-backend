@@ -16,4 +16,6 @@ public interface StudentService {
     StudentEntity update(StudentEntity student) throws EntityNotFoundException;
 
     void delete(Long id) throws EntityNotFoundException;
+
+    boolean hasAnyRecord();
 }

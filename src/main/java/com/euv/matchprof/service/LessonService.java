@@ -16,4 +16,6 @@ public interface LessonService {
     LessonEntity update(LessonEntity lesson) throws EntityNotFoundException;
 
     void delete(Long id) throws EntityNotFoundException;
+
+    boolean hasAnyRecord();
 }

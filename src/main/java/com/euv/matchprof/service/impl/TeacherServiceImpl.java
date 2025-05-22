@@ -34,12 +34,10 @@ public class TeacherServiceImpl implements TeacherService {
 
     @Override
     public TeacherEntity save(TeacherEntity teacher) throws EntityAlreadySavedException {
-        try {
-            TeacherEntity savedTeacher = this.findById(teacher.getId());
+        if (teacher.getId() != null && teacherRepository.existsById(teacher.getId())) {
             throw new EntityAlreadySavedException("Teacher is already saved before: " + teacher.getId());
-        } catch (EntityNotFoundException e) {
-            return teacherRepository.save(teacher);
         }
+        return teacherRepository.save(teacher);
     }
 
     @Override
@@ -73,5 +71,10 @@ public class TeacherServiceImpl implements TeacherService {
         } catch (EntityNotFoundException e) {
             throw e;
         }
+    }
+
+    @Override
+    public boolean hasAnyRecord() {
+        return teacherRepository.existsByIdIsNotNull();
     }
 }

@@ -34,12 +34,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserEntity save(UserEntity user) throws EntityAlreadySavedException {
-        try {
-            UserEntity savedUser = this.findById(user.getId());
+        if (user.getId() != null && userRepository.existsById(user.getId())) {
             throw new EntityAlreadySavedException("User is already saved before: " + user.getId());
-        } catch (EntityNotFoundException e) {
-            return userRepository.save(user);
         }
+        return userRepository.save(user);
     }
 
     @Override
@@ -67,5 +65,10 @@ public class UserServiceImpl implements UserService {
         } catch (EntityNotFoundException e) {
             throw e;
         }
+    }
+
+    @Override
+    public boolean hasAnyRecord() {
+        return userRepository.existsByIdIsNotNull();
     }
 }

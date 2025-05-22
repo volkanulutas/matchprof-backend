@@ -26,7 +26,7 @@ public class FavoriteTeacherServiceImpl implements FavoriteTeacherService {
         if (optional.isPresent()) {
             return optional.get();
         }
-        throw new EntityNotFoundException("Lesson is not found: " + id);
+        throw new EntityNotFoundException("Favorite Teacher is not found: " + id);
     }
 
     @Override
@@ -36,12 +36,10 @@ public class FavoriteTeacherServiceImpl implements FavoriteTeacherService {
 
     @Override
     public FavoriteTeacherEntity save(FavoriteTeacherEntity favoriteTeacher) throws EntityAlreadySavedException {
-        try {
-            FavoriteTeacherEntity savedFavoriteTeacher = this.findById(favoriteTeacher.getId());
-            throw new EntityAlreadySavedException("Lesson is already saved before: " + favoriteTeacher.getId());
-        } catch (EntityNotFoundException e) {
-            return favoriteTeacherRepository.save(favoriteTeacher);
+        if (favoriteTeacher.getId() != null && favoriteTeacherRepository.existsById(favoriteTeacher.getId())) {
+            throw new EntityAlreadySavedException("Favorite Teacher is already saved before: " + favoriteTeacher.getId());
         }
+        return favoriteTeacherRepository.save(favoriteTeacher);
     }
 
     @Override
@@ -65,5 +63,10 @@ public class FavoriteTeacherServiceImpl implements FavoriteTeacherService {
         } catch (EntityNotFoundException e) {
             throw e;
         }
+    }
+
+    @Override
+    public boolean hasAnyRecord() {
+        return favoriteTeacherRepository.existsByIdIsNotNull();
     }
 }

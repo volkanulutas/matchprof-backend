@@ -1,0 +1,25 @@
+teachers:
+  - id: 1
+    email: volkanulutas@gmail.com
+    phoneNumber: "05321231231"
+    password: "12345"
+    profilePicture: null
+    name: Volkan
+    surname: Ulutaş
+    enabled: true
+    chargeByHour: 1500
+    replyTimeToRequests: 1
+    birthdate: 0
+    givenLessonIds: [1]
+  - id: 2
+    email: abdulkadirgorur@gmail.com
+    phoneNumber: "05321231232"
+    password: "12345"
+    profilePicture: null
+    name: Abdül Kadir
+    surname: Görür
+    enabled: true
+    chargeByHour: 2000
+    replyTimeToRequests: 1
+    birthdate: 0
+    givenLessonIds: [1]

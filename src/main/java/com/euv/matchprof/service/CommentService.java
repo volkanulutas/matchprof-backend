@@ -16,4 +16,6 @@ public interface CommentService {
     CommentEntity update(CommentEntity comment) throws EntityNotFoundException;
 
     void delete(Long id) throws EntityNotFoundException;
+
+    boolean hasAnyRecord();
 }

@@ -1,0 +1,16 @@
+categories:
+  - id: 1
+    name: "Matematik"
+    description: "Tüm matematik derslerini içerir"
+    enabled: true
+    childCategories:
+      - id: 2
+        name: "Geometri"
+        description: "Açılar, üçgenler ve daha fazlası"
+        enabled: true
+        childCategories: [ ]
+      - id: 3
+        name: "Cebir"
+        description: "Denklemler, fonksiyonlar"
+        enabled: false
+        childCategories: [ ]

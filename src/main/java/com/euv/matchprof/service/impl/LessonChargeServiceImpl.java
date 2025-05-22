@@ -24,7 +24,7 @@ public class LessonChargeServiceImpl implements LessonChargeService {
         if (optional.isPresent()) {
             return optional.get();
         }
-        throw new EntityNotFoundException("Lesson is not found: " + id);
+        throw new EntityNotFoundException("Lesson Charge is not found: " + id);
     }
 
     @Override
@@ -34,12 +34,10 @@ public class LessonChargeServiceImpl implements LessonChargeService {
 
     @Override
     public LessonChargeEntity save(LessonChargeEntity lessonCharge) throws EntityAlreadySavedException {
-        try {
-            LessonChargeEntity savedLesson = this.findById(lessonCharge.getId());
-            throw new EntityAlreadySavedException("Lesson is already saved before: " + lessonCharge.getId());
-        } catch (EntityNotFoundException e) {
-            return lessonChargeRepository.save(lessonCharge);
+        if (lessonCharge.getId() != null && lessonChargeRepository.existsById(lessonCharge.getId())) {
+            throw new EntityAlreadySavedException("Lesson Charge is already saved before: " + lessonCharge.getId());
         }
+        return lessonChargeRepository.save(lessonCharge);
     }
 
     @Override
@@ -62,5 +60,10 @@ public class LessonChargeServiceImpl implements LessonChargeService {
         } catch (EntityNotFoundException e) {
             throw e;
         }
+    }
+
+    @Override
+    public boolean hasAnyRecord() {
+        return lessonChargeRepository.existsByIdIsNotNull();
     }
 }

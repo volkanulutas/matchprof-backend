@@ -24,7 +24,7 @@ public class CommentServiceImpl implements CommentService {
         if (optional.isPresent()) {
             return optional.get();
         }
-        throw new EntityNotFoundException("Lesson is not found: " + id);
+        throw new EntityNotFoundException("Comment is not found: " + id);
     }
 
     @Override
@@ -34,12 +34,10 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public CommentEntity save(CommentEntity comment) throws EntityAlreadySavedException {
-        try {
-            CommentEntity savedComment = this.findById(comment.getId());
-            throw new EntityAlreadySavedException("Lesson is already saved before: " + comment.getId());
-        } catch (EntityNotFoundException e) {
-            return commentRepository.save(comment);
+        if (comment.getId() != null && commentRepository.existsById(comment.getId())) {
+            throw new EntityAlreadySavedException("Comment Teacher is already saved before: " + comment.getId());
         }
+        return commentRepository.save(comment);
     }
 
     @Override
@@ -66,5 +64,10 @@ public class CommentServiceImpl implements CommentService {
         } catch (EntityNotFoundException e) {
             throw e;
         }
+    }
+
+    @Override
+    public boolean hasAnyRecord() {
+        return commentRepository.existsByIdIsNotNull();
     }
 }

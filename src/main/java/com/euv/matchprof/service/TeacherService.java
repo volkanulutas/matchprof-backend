@@ -17,4 +17,6 @@ public interface TeacherService {
     TeacherEntity update(TeacherEntity teacher) throws EntityNotFoundException;
 
     void delete(Long id) throws EntityNotFoundException;
+
+    boolean hasAnyRecord();
 }

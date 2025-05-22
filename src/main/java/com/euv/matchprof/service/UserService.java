@@ -16,4 +16,6 @@ public interface UserService {
     UserEntity update(UserEntity user) throws EntityNotFoundException;
 
     void delete(Long id) throws EntityNotFoundException;
+
+    boolean hasAnyRecord();
 }

@@ -1,0 +1,5 @@
+charges:
+  - id: 1
+    amount: 750.0
+  - id: 2
+    amount: 1000.0

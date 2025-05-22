@@ -55,7 +55,7 @@ public class FavoriteTeacherController {
         }
     }
 
-    @GetMapping(value = "/", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> findById(@PathParam("id") Long id) {
         try {
             FavoriteTeacherEntity lesson = favoriteTeacherService.findById(id);

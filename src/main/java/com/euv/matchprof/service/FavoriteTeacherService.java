@@ -16,4 +16,6 @@ public interface FavoriteTeacherService {
     FavoriteTeacherEntity update(FavoriteTeacherEntity favoriteTeacher)throws EntityNotFoundException;
 
     void delete(Long id) throws EntityNotFoundException;
+
+    boolean hasAnyRecord();
 }

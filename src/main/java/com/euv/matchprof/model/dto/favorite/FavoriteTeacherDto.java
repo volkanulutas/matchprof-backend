@@ -1,7 +1,6 @@
 package com.euv.matchprof.model.dto.favorite;
 
 import com.euv.matchprof.model.dto.user.StudentDto;
-import jakarta.persistence.Id;
 import lombok.Data;
 
 import java.util.Set;
@@ -12,5 +11,5 @@ public class FavoriteTeacherDto {
 
     private StudentDto student;
 
-    private Set<Id> favoriteTeacherIds;
+    private Set<Long> favoriteTeacherIds;
 }

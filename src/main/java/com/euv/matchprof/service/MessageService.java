@@ -16,4 +16,6 @@ public interface MessageService {
     MessageEntity update(MessageEntity message) throws EntityNotFoundException;
 
     void delete(Long id) throws EntityNotFoundException;
+
+    boolean hasAnyRecord();
 }

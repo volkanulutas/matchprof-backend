@@ -1,0 +1,7 @@
+lessons:
+  - id: 1
+    name: "Lise Matematik Dersleri"
+    description: "Lise Matematik Dersleri"
+    enabled: true
+    categoryId: 1
+    chargeId: 1

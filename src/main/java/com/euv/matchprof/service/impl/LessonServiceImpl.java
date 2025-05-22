@@ -20,6 +20,9 @@ public class LessonServiceImpl implements LessonService {
 
     @Override
     public LessonEntity findById(Long id) throws EntityNotFoundException {
+        if (id == null) {
+            throw new EntityNotFoundException("Lesson is not found: " + id);
+        }
         Optional<LessonEntity> optional = lessonRepository.findById(id);
         if (optional.isPresent()) {
             return optional.get();
@@ -34,12 +37,10 @@ public class LessonServiceImpl implements LessonService {
 
     @Override
     public LessonEntity save(LessonEntity lesson) throws EntityAlreadySavedException {
-        try {
-            LessonEntity savedLesson = this.findById(lesson.getId());
+        if (lesson.getId() != null && lessonRepository.existsById(lesson.getId())) {
             throw new EntityAlreadySavedException("Lesson is already saved before: " + lesson.getId());
-        } catch (EntityNotFoundException e) {
-            return lessonRepository.save(lesson);
         }
+        return lessonRepository.save(lesson);
     }
 
     @Override
@@ -48,9 +49,7 @@ public class LessonServiceImpl implements LessonService {
             LessonEntity savedLesson = this.findById(lesson.getId());
             savedLesson.setId(lesson.getId());
             savedLesson.setName(lesson.getName());
-            savedLesson.setCategory(lesson.getCategory());
             savedLesson.setDescription(lesson.getDescription());
-            savedLesson.setCharge(lesson.getCharge());
             savedLesson.setEnabled(lesson.isEnabled());
             return this.lessonRepository.save(savedLesson);
         } catch (EntityNotFoundException e) {
@@ -66,5 +65,10 @@ public class LessonServiceImpl implements LessonService {
         } catch (EntityNotFoundException e) {
             throw e;
         }
+    }
+
+    @Override
+    public boolean hasAnyRecord() {
+        return lessonRepository.existsByIdIsNotNull();
     }
 }

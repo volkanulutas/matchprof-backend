@@ -16,4 +16,6 @@ public interface LessonCategoryService {
     LessonCategoryEntity update(LessonCategoryEntity favoriteTeacher) throws EntityNotFoundException;
 
     void delete(Long id) throws EntityNotFoundException;
+
+    boolean hasAnyRecord();
 }
